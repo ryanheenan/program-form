@@ -52,4 +52,45 @@ const ProgramFormPreview = () => {
     if (formData.bonusWeeks) {
       const baseWeeks = parseInt(formData.programLength);
       const totalWeeks = baseWeeks + 4;
-      return
+      return `Program includes ${baseWeeks} weeks plus 4 bonus weeks, for a total of ${totalWeeks} weeks.`;
+    }
+    return "";
+  };
+
+  return (
+    <div className="space-y-8 max-w-4xl mx-auto">
+      <Card>
+        <CardHeader>
+          <CardTitle>Client Information</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label>Client Name</Label>
+              <Input
+                type="text"
+                name="clientName"
+                value={formData.clientName}
+                onChange={handleInputChange}
+                placeholder="John Doe"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label>Email</Label>
+              <Input
+                type="email"
+                name="clientEmail"
+                value={formData.clientEmail}
+                onChange={handleInputChange}
+                placeholder="john@example.com"
+              />
+            </div>
+            {/* Add other fields here */}
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
+
+export default ProgramFormPreview;
